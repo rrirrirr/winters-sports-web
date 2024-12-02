@@ -1,0 +1,35 @@
+<.flash_group flash={@flash} />
+<div class="relative min-h-screen">
+  <div class="absolute inset-0 overflow-hidden flex justify-center">
+    <video class="h-full object-cover" autoplay muted loop playsinline preload="auto">
+      <source src="/videos/winter.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute z-10 flex flex-col items-center justify-center text-white text-center h-full">
+      <h1 class="text-6xl font-bold mb-8">Winter Sports 2024</h1>
+      <button
+        onclick="document.getElementById('signup').scrollIntoView({behavior: 'smooth'})"
+        class="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-xl px-8 py-3 rounded-lg"
+      >
+        Sign Up Now
+      </button>
+    </div>
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-r from-black from-15% via-black/50 via-50% to-black to-85%">
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black to-95%"></div>
+    </div>
+  </div>
+</div>
+
+<div id="signup" class="min-h-screen flex items-center justify-center bg-gray-900">
+  <div class="bg-white/10 backdrop-blur-md p-8 rounded-lg w-full max-w-md">
+    <h2 class="text-2xl font-semibold mb-6 text-white">Sign Up Now</h2>
+    <.simple_form for={@form} action={~p"/registrations"} class="bg-none">
+      <.input field={@form[:name]} type="text" label="Namn" required />
+      <.input field={@form[:comments]} type="textarea" label="Comments" />
+      <:actions>
+        <.button class="w-full">Register</.button>
+      </:actions>
+    </.simple_form>
+  </div>
+</div>
